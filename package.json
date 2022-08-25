@@ -1,0 +1,32 @@
+{
+  "name": "vue3-github-deploy",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.3",
+    "vite": "^3.0.7",
+    "esbuild-wasm": "^0.14.42"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "npm:esbuild-wasm@^0.14.42"
+    },
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "react",
+        "@types/react",
+        "react-dom",
+        "rollup"
+      ]
+    }
+  }
+}
