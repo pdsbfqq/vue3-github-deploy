@@ -1,5 +1,5 @@
 <template>
-  <div>hello vite!</div>
+  <div>hello vitejs!</div>
 </template>
 
 <style scoped>
