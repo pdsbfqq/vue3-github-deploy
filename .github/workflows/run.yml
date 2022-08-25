@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 迁出代码
-        users: actions/checkout/@master
+        uses: actions/checkout/@master
 
       - name: 安装 Node
         uses: actions/setup-node@v1
