@@ -10,26 +10,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 迁出代码
-      users: actions/checkout/@master
+        users: actions/checkout/@master
 
-    - name: 安装 Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.0.0
-    - name: 安装依赖
-      run: npm run build
+      - name: 安装 Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.0.0
+      - name: 安装依赖
+        run: npm run build
 
-    - name: 上传到腾讯云
-      uses: easingthemes/ssh-deploy@v2.1.1
-      env: 
-        # ssh 私钥
-        SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        ARGS: '-avzr -delete'
-        # 源目录
-        SOURCE: 'dist'
-        # 远程地址
-        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-        # 远程用户
-        REMOTE_USER: root
-        # 远程项目存放目录
-        TARGET: '/wwww/wwwroot'
+      - name: 上传到腾讯云
+        uses: easingthemes/ssh-deploy@v2.1.1
+        env:
+          # ssh 私钥
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          ARGS: '-avzr -delete'
+          # 源目录
+          SOURCE: 'dist'
+          # 远程地址
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          # 远程用户
+          REMOTE_USER: root
+          # 远程项目存放目录
+          TARGET: '/wwww/wwwroot'
