@@ -9,17 +9,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 迁出代码
+      - name: checkout project
         uses: actions/checkout/@master
 
-      - name: 安装 Node
+      - name: install node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 14.0.0
-      - name: 安装依赖
+          node-version: 16.13.2
+      - name: install node modules
         run: npm run build
 
-      - name: 上传到腾讯云
+      - name: upload 腾讯云
         uses: easingthemes/ssh-deploy@v2.1.1
         env:
           # ssh 私钥
